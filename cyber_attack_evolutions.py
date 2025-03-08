@@ -52,9 +52,10 @@ llm = ChatGroq(
     api_key=GROQ_API_KEY
 )
 
+st.title("Infosec Insight Bot")
 
 query=st.text_input("Ask Query...")
-if st.button("Ask"):
+if st.button("Ask") and query!="":
   res=llm.invoke(get_prompt(query))
   st.write(res.content)
 
